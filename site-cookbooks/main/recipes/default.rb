@@ -18,6 +18,6 @@
 #
 
 
-include_recipe "mysql"
+#include_recipe "mysql"
 include_recipe "ruby"
-include_recipe "nginx"
+#include_recipe "nginx"

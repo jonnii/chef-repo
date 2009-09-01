@@ -1,0 +1,13 @@
+{
+  "apps": [
+    "twentythirdandlove"
+  ],
+  "user": "twentythirdandlove",
+  "gems": [
+    {
+      "name": "rake",
+      "version": "0.8.3"
+    }
+  ],
+  "recipes": ["main"]
+}

@@ -20,4 +20,8 @@
 
 include_recipe "mysql"
 include_recipe "ruby"
+include_recipe "god"
+include_recipe "imagemagick"
+include_recipe "sqlite"
+
 #include_recipe "nginx"

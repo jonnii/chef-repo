@@ -9,5 +9,6 @@
       "version": "0.8.3"
     }
   ],
+  "domain": "twentythirdandlove.com",
   "recipes": ["main"]
 }

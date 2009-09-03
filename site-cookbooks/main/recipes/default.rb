@@ -23,5 +23,6 @@ include_recipe "ruby"
 include_recipe "god"
 include_recipe "imagemagick"
 include_recipe "sqlite"
-
-#include_recipe "nginx"
+include_recipe "logrotate"
+include_recipe "memcached"
+include_recipe "nginx"

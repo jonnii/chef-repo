@@ -1,11 +1,10 @@
 #
 # Example Chef Solo Config
 cookbook_path [ 
-                File.join(File.dirname(__FILE__), '..', "site-cookbooks"),
-                File.join(File.dirname(__FILE__), '..', "cookbooks")
+               '/root/chef-repo/site-cookbooks', '/root/chef-repo/cookbooks' 
               ]
 
 log_level         :info
-file_store_path  File.join(File.dirname(__FILE__), '..')
-file_cache_path  File.join(File.dirname(__FILE__), '..')
+file_store_path  '/root/chef-repo'
+file_cache_path  '/root/chef-repo'
 Chef::Log::Formatter.show_time = false

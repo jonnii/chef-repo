@@ -25,4 +25,13 @@ include_recipe "imagemagick"
 include_recipe "sqlite"
 include_recipe "logrotate"
 include_recipe "memcached"
-include_recipe "mod_rails"
+include_recipe "rails"
+include_recipe "passenger_apache2"
+
+web_app "twentythirdandlove" do
+  cookbook "passenger"
+  docroot "/apps/twentythirdandlove/public"
+  server_name "#{node[:domain]}"
+  server_aliases [ "twentythirdandlove", node[:hostname] ]
+  rails_env "production"
+end

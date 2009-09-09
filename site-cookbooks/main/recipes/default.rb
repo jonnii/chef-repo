@@ -59,7 +59,7 @@ end
 end 
 
 include_recipe "rails"
-include_recipe "passenger"
+include_recipe "passenger_apache2"
 
 web_app "twentythirdandlove" do
   cookbook "passenger_apache2"

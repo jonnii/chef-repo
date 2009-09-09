@@ -17,6 +17,14 @@
 # limitations under the License.
 #
 
+include_recipe "mysql"
+include_recipe "god"
+include_recipe "imagemagick"
+include_recipe "sqlite"
+include_recipe "logrotate"
+include_recipe "memcached"
+include_recipe "rails"
+include_recipe "passenger_apache2"
 
 directory "/apps" do
   owner "root"
@@ -26,6 +34,9 @@ end
 
 user "twentythirdandlove" do
   gid "www-data"
+  uid "1000"
+  home "/home/twentythirdandlove"
+  shell "/bin/sh"
 end
 
 directory "/apps/twentythirdandlove" do
@@ -56,10 +67,10 @@ end
   end
 end 
 
-web_app "twentythirdandlove" do
-  cookbook "passenger_apache2"
-  docroot "/apps/twentythirdandlove/staging/current/public"
-  server_name "#{node[:domain]}"
-  server_aliases [ "twentythirdandlove", node[:hostname] ]
-  rails_env "production"
-end
+#web_app "twentythirdandlove" do
+#  cookbook "passenger_apache2"
+#  docroot "/apps/twentythirdandlove/staging/current/public"
+#  server_name "#{node[:domain]}"
+#  server_aliases [ "twentythirdandlove", node[:hostname] ]
+#  rails_env "production"
+#end

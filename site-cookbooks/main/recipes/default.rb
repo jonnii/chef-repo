@@ -18,16 +18,6 @@
 #
 
 
-include_recipe "mysql"
-include_recipe "god"
-include_recipe "imagemagick"
-include_recipe "sqlite"
-include_recipe "logrotate"
-include_recipe "memcached"
-include_recipe "rails"
-include_recipe "passenger_apache2"
-#include_recipe "ssh_known_hosts"
-
 directory "/apps" do
   owner "root"
   group "root"

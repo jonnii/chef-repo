@@ -19,7 +19,6 @@
 
 
 include_recipe "mysql"
-include_recipe "ruby"
 include_recipe "god"
 include_recipe "imagemagick"
 include_recipe "sqlite"
@@ -27,10 +26,43 @@ include_recipe "logrotate"
 include_recipe "memcached"
 include_recipe "rails"
 include_recipe "passenger_apache2"
+include_recipe "ssh_known_hosts"
+
+user "twentythirdandlove" do
+  gid "www-data"
+end
+
+directory "/apps/twentythirdandlove" do
+  owner "twentythirdandlove"
+  group "www-data"
+  mode "0755"
+  action :create
+end
+
+%w(staging production).each do |env|
+  directory "/apps/twentythirdandlove/#{env}" do
+    owner "twentythirdandlove"
+    group "www-data"
+    mode "0755"
+    action :create
+  end
+  directory "/apps/twentythirdandlove/#{env}/releases" do
+    owner "twentythirdandlove"
+    group "www-data"
+    mode "0755"
+    action :create
+  end
+  directory "/apps/twentythirdandlove/#{env}/shared" do
+    owner "twentythirdandlove"
+    group "www-data"
+    mode "0755"
+    action :create
+  end
+end 
 
 web_app "twentythirdandlove" do
   cookbook "passenger_apache2"
-  docroot "/apps/twentythirdandlove/public"
+  docroot "/apps/twentythirdandlove/staging/current/public"
   server_name "#{node[:domain]}"
   server_aliases [ "twentythirdandlove", node[:hostname] ]
   rails_env "production"

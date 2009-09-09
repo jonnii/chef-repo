@@ -58,8 +58,7 @@ end
   end
 end 
 
-include_recipe "rails"
-include_recipe "passenger_apache2"
+include_recipe "passenger_apache2::mod_rails"
 
 web_app "twentythirdandlove" do
   cookbook "passenger_apache2"

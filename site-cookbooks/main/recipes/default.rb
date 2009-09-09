@@ -58,10 +58,13 @@ end
   end
 end 
 
-#web_app "twentythirdandlove" do
-#  cookbook "passenger_apache2"
-#  docroot "/apps/twentythirdandlove/staging/current/public"
-#  server_name "#{node[:domain]}"
-#  server_aliases [ "twentythirdandlove", node[:hostname] ]
-#  rails_env "production"
-#end
+include_recipe "rails"
+include_recipe "passenger"
+
+web_app "twentythirdandlove" do
+  cookbook "passenger_apache2"
+  docroot "/apps/twentythirdandlove/staging/current/public"
+  server_name "#{node[:domain]}"
+  server_aliases [ "twentythirdandlove", node[:hostname] ]
+  rails_env "production"
+end

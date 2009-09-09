@@ -26,7 +26,7 @@ include_recipe "logrotate"
 include_recipe "memcached"
 include_recipe "rails"
 include_recipe "passenger_apache2"
-include_recipe "ssh_known_hosts"
+#include_recipe "ssh_known_hosts"
 
 user "twentythirdandlove" do
   gid "www-data"

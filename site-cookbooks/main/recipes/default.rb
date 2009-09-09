@@ -28,6 +28,12 @@ include_recipe "rails"
 include_recipe "passenger_apache2"
 #include_recipe "ssh_known_hosts"
 
+directory "/apps" do
+  owner "root"
+  group "root"
+  action :create
+end
+
 user "twentythirdandlove" do
   gid "www-data"
 end

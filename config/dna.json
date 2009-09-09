@@ -10,5 +10,5 @@
     }
   ],
   "domain": "twentythirdandlove.com",
-  "recipes": ["mysql", "god", "imagemagick", "sqlite", "logrotate", "memcached", "rails", "passenger", "main"]
+  "recipes": ["mysql", "god", "imagemagick", "sqlite", "logrotate", "memcached", "rails", "mod_rails", "main"]
 }

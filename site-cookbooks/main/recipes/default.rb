@@ -17,6 +17,15 @@
 # limitations under the License.
 #
 
+package "imagemagick"
+package "libmagick9-dev"
+package "libxml2-dev"
+package "libxslt1-dev"
+
+gem_package "rmagick"
+
+gem_package "hoe"
+
 directory "/apps" do
   owner "root"
   group "root"

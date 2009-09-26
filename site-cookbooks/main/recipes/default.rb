@@ -65,5 +65,5 @@ web_app "twentythirdandlove" do
   docroot "/apps/twentythirdandlove/staging/current/public"
   server_name "#{node[:domain]}"
   server_aliases [ "twentythirdandlove", node[:hostname] ]
-  rails_env "production"
+  rails_env "staging"
 end

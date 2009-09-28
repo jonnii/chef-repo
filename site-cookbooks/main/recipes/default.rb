@@ -76,3 +76,7 @@ web_app "twentythirdandlove" do
   server_aliases [ "twentythirdandlove", node[:hostname] ]
   rails_env "staging"
 end
+
+god_monitor "twentythirdandlove" do
+  config "twentythirdandlove.god.erb"
+end

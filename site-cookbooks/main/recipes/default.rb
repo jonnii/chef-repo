@@ -77,6 +77,14 @@ web_app "twentythirdandlove" do
   rails_env "staging"
 end
 
+web_app "twentythirdandlove_staging" do
+  cookbook "passenger_apache2"
+  docroot "/apps/twentythirdandlove/staging/current/public"
+  server_name "staging.twentythirdandlove.com"
+  server_aliases [ "staging.twentythirdandlove" ]
+  rails_env "staging"
+end
+
 god_monitor "twentythirdandlove" do
   config "twentythirdandlove.god.erb"
 end

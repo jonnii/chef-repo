@@ -32,35 +32,35 @@ directory "/apps" do
   action :create
 end
 
-user "twentythirdandlove" do
+user "nycandlove" do
   gid "www-data"
   uid "1000"
-  home "/home/twentythirdandlove"
+  home "/home/nycandlove"
   shell "/bin/sh"
 end
 
-directory "/apps/twentythirdandlove" do
-  owner "twentythirdandlove"
+directory "/apps/nycandlove" do
+  owner "nycandlove"
   group "www-data"
   mode "0755"
   action :create
 end
 
 %w(staging production).each do |env|
-  directory "/apps/twentythirdandlove/#{env}" do
-    owner "twentythirdandlove"
+  directory "/apps/nycandlove/#{env}" do
+    owner "nycandlove"
     group "www-data"
     mode "0755"
     action :create
   end
-  directory "/apps/twentythirdandlove/#{env}/releases" do
-    owner "twentythirdandlove"
+  directory "/apps/nycandlove/#{env}/releases" do
+    owner "nycandlove"
     group "www-data"
     mode "0755"
     action :create
   end
-  directory "/apps/twentythirdandlove/#{env}/shared" do
-    owner "twentythirdandlove"
+  directory "/apps/nycandlove/#{env}/shared" do
+    owner "nycandlove"
     group "www-data"
     mode "0755"
     action :create
@@ -69,22 +69,22 @@ end
 
 include_recipe "passenger_apache2::mod_rails"
 
-web_app "twentythirdandlove" do
+web_app "nycandlove" do
   cookbook "passenger_apache2"
-  docroot "/apps/twentythirdandlove/staging/current/public"
+  docroot "/apps/nycandlove/production/current/public"
   server_name "#{node[:domain]}"
-  server_aliases [ "twentythirdandlove", node[:hostname] ]
-  rails_env "staging"
+  server_aliases [ "nycandlove", node[:hostname] ]
+  rails_env "production"
 end
 
-web_app "twentythirdandlove_staging" do
+web_app "nycandlove_staging" do
   cookbook "passenger_apache2"
-  docroot "/apps/twentythirdandlove/staging/current/public"
-  server_name "staging.twentythirdandlove.com"
-  server_aliases [ "staging.twentythirdandlove" ]
+  docroot "/apps/nycandlove/staging/current/public"
+  server_name "staging.nycandlove.com"
+  server_aliases [ "staging.nycandlove" ]
   rails_env "staging"
 end
 
-god_monitor "twentythirdandlove" do
-  config "twentythirdandlove.god.erb"
+god_monitor "nycandlove" do
+  config "nycandlove.god.erb"
 end

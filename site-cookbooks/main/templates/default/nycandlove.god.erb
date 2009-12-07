@@ -1,6 +1,6 @@
 
 %w(staging).each do |e|
-	rails_root = "/apps/twentythirdandlove/#{e}/current"
+	rails_root = "/apps/nycandlove/#{e}/current"
 
 	God.watch do |w|
 	    w.name     = "dj"
@@ -8,7 +8,7 @@
 	    w.interval = 30.seconds
 	    w.start    = "rake -f #{rails_root}/Rakefile #{e} jobs:work"
 
-	    w.uid = 'twentythirdandlove'
+	    w.uid = 'nycandlove'
 	    w.gid = 'www-root'
 
 	    # retart if memory gets too high

@@ -10,5 +10,5 @@
     }
   ],
   "domain": "nycandlove.com",
-  "recipes": ["imagemagick", "sudo", "sqlite", "logrotate", "memcached", "rails", "passenger_apache2::mod_rails", "main"]
+  "recipes": ["mysql::server", "god", "imagemagick", "sudo", "sqlite", "logrotate", "memcached", "rails", "passenger_apache2::mod_rails", "main"]
 }

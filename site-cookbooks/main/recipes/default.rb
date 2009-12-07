@@ -85,6 +85,6 @@ web_app "nycandlove_staging" do
   rails_env "staging"
 end
 
-god_monitor "nycandlove" do
-  config "nycandlove.god.erb"
-end
+#god_monitor "nycandlove" do
+#  config "nycandlove.god.erb"
+#end

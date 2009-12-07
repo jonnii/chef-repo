@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "mysql::server"
+
 package "imagemagick"
 package "libmagick9-dev"
 package "libxml2-dev"

@@ -73,7 +73,7 @@ web_app "nycandlove" do
   cookbook "passenger_apache2"
   docroot "/apps/nycandlove/production/current/public"
   server_name "#{node[:domain]}"
-  server_aliases [ "www.nycandlove", "nycandlove", node[:hostname] ]
+  server_aliases [ "www.nycandlove.com", "nycandlove", node[:hostname] ]
   rails_env "production"
 end
 
